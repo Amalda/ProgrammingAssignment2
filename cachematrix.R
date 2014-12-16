@@ -1,9 +1,11 @@
 ## Author: Amal Awad
 ## Creation Date: 12/9/2014
-## Purpose: Matrix inversion is usually a costly computation and their may be some benefit to caching the inverse of a matrix rather than compute it repeatedly 
-## the below two functions are used to create a special object that stores a matrix and cache's its inverse
+## Purpose: Matrix inversion is usually a costly computation and their may be some
+## benefit from caching the inverse of a matrix rather than compute it repeatedly 
+## "makeCacheMatrix" and "cacheSolve" functions are used to create a special object 
+## that stores a matrix and cache's its inverse
 
-## The makeCacheMatrix function which takes one argument x which is a matrix, creates a special Matrix which is really a list containing functions to
+##makeCacheMatrix function creates a special Matrix which is really a list containing functions to
 #set the value of the matrix
 #get the value of the matrix
 #set the inverse of the matrix
@@ -34,9 +36,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The cachesolve function calculates the inverse for the special Matrix created in the above 
-#function, it checks first if the inverse is already calculated (if the matrix has not changed) 
-#to return it from the cashe and skip computation, otherwise it calculates the inverse and returns it to user
+##cachesolve function calculates the inverse for the special Matrix created in
+#makeCacheMatrix function only if the inverse is not already calculated, otherwise
+#the inverse will be returned from cashe and calculation will be skipped 
 cacheSolve <- function(x, ...) {
     #get the inverse from cache function
     i <- x$getinverse()
